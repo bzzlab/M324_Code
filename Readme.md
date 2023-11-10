@@ -1,6 +1,6 @@
-# SOLUTIONS FFIT-1 - Grundlagen Client-Programmierung
+# Modul 324 - DevOps-Prozesse mit Tools unterstützen
 
-Code zum Freifach
-Die enstprechenden Lernziele finden Sie auf http://ict.bzzlab.ch, anschliessend Ihren Jahrgang wählen.
-Ich wünsche Ihnen viel Erfolg bei der Bearbeitung der Praxis-Beispiele. 
+Code for the course
+You can find the corresponding learning objectives at http://ict.bzzlab.ch, then select your year.
+I wish you success in working on the practical examples.
 Daniel Garavaldi
