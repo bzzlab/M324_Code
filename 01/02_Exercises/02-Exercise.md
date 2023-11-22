@@ -1,8 +1,12 @@
-### Exercise 2: Recapture container network commands
-####  Pre requisit
-Docker container environment (i.e. actual version of Docker-Desktop) is mandatory.
-#### Tasks
-1. Read again the basic container management commands
-2. Try to understand what you are doing.
-3. In any case of errors: analyze it, try to figure out 
-the source of the error and test an initial workaround (troubleshooting).
+### Exercise 2: Multi-staged pipeline
+####  Prerequisite
+1. Docker container environment (i.e. actual version of Docker-Desktop) is mandatory.
+2. You need a running Jenkins controller (master)
+####  Tasks
+1. For experiencing multi-stage and -step pipeline add a new item in Jenkins
+2. You can use as blueprint the pipeline code below:
+
+[<img src="img/04-multistagedpipeline.png" width="250"/>](img/04-multistagedpipeline.png)
+
+3. Build and see what result issues Jenkins on the console
+
