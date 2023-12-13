@@ -1,0 +1,16 @@
+pipeline {
+  environment {
+    registry = "your_docker_hub_account/repository_name"
+    registryCredential = 'your_docker_hub_account'
+  }
+  agent any
+  stages {
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+  }
+}

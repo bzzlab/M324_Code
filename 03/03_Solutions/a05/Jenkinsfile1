@@ -1,0 +1,60 @@
+pipeline {
+  environment {
+    registry = "readydocker1/traffic-api"
+    registryCredential = 'dockerhub'
+  }
+  agent any
+  tools {nodejs "node"}
+  stages {
+    stage('Cloning Repo') {
+            steps {
+              script {
+                  git branch: 'main',
+                  url: 'https://github.com/bzzlab/M324_trafficlight-api.git'
+           }
+         }
+    }
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry+":$BUILD_NUMBER"
+        }
+      }
+    }
+
+    stage('Install jest-cli') {
+      steps {
+        sh 'npm install jest-cli -g'
+     }
+    }
+
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+
+    stage('Run container for testing') {
+      steps {
+        sh 'docker run -itd --rm -p 3000:3000 --name traffic-api $registry:$BUILD_NUMBER'
+      }
+    }
+    stage('Test') {
+      steps {
+         sh 'npm test'
+      }
+    }
+
+    stage('Remove traffic container') {
+      steps{
+        sh "docker stop traffic-api"
+      }
+    }
+
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
+      }
+    }
+  }
+}
